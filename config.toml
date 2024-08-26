@@ -1,0 +1,7 @@
+[[device]]
+name = "Device1"
+url = "http://192.168.2.107/"
+
+[[device]]
+name = "Device2"
+url = "http://192.168.2.106/"
