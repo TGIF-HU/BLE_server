@@ -15,3 +15,11 @@ url = "http://192.168.2.107/"
 name = "Device2"
 url = "http://192.168.2.106/"
 ```
+
+## 実行
+
+BLEサーバーの実行
+
+```
+rye run server
+```
