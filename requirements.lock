@@ -16,6 +16,10 @@ charset-normalizer==3.3.2
     # via requests
 idna==3.8
     # via requests
+polars==1.5.0
+    # via ble-server
+pyyaml==6.0.2
+    # via ble-server
 requests==2.32.3
     # via ble-server
 toml==0.10.2
