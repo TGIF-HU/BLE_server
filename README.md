@@ -4,7 +4,7 @@
 
 ## 設定
 
-`config.toml`にURLとデバイスの名前を書き込む
+[BLE_rust](https://github.com/TGIF-HU/BLE_rust)で作成したBLEサーバーを作成し、`config.toml`にURLを書き込む
 
 ```config.toml
 [[device]]
