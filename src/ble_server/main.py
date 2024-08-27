@@ -15,9 +15,14 @@ with open("config.toml", "rb") as f:
 company_id = CompanyID("Company_ID_2024087.yaml")
 
 while True:
+    # TODO: 並列化
     for device in ble_data["device"]:
         # デバイスの情報を取得
-        device_id, ble_df = get_ble_server(device["url"])
+        result = get_ble_server(device["url"])
+        if result is None:
+            continue
+        else:
+            device_id, ble_df = result
         print("---------------------------------------")
         print(f"Device ID: {device_id}")
         # print(ble_df)

@@ -9,13 +9,19 @@ class CompanyID:
         with open(yaml_file, "rb") as f:
             self.comp_data = yaml.safe_load(f)
 
-    def get_Company(self, config: [int]) -> Series:
+    def get_Company(self, config: list[int]) -> Series:
         # TODO
         return
 
 
-def get_ble_server(url: str) -> (int, pl.DataFrame):
-    j = requests.get(url).json()
+def get_ble_server(url: str) -> tuple[int, pl.DataFrame] | None:
+    try:
+        j = requests.get(url, timeout=(3.0, 7.5)).json()
+    except requests.exceptions.RequestException as e:
+        Warning("サーバーが見つかりませんでした")
+        print(e)
+        return None
+    
     ble_df = pl.DataFrame(j["ble"]).select(
         pl.col("address").alias("MAC_ADDRESS"),
         pl.col("rssi").alias("RSSI"),
